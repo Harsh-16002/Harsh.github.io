@@ -1,0 +1,449 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: radial-gradient(circle,blue,white,pink)
+    }
+    .left{
+        height: 100%;
+        width: 20%;
+        float: left;
+        color: white;
+        background-color:brown;
+        background-image: linear-gradient(to right,red,blue,yellow);
+    }
+    .right{
+        height: 100%;
+        width: 20%;
+        float: right;
+        margin-top: -100px;
+        color: white;
+        background-image: linear-gradient(to left,red,blue,yellow);
+    }
+    .header{
+        height: 100px;
+        width: 60%;
+        margin-left: 20%;
+        background-image: linear-gradient(pink,white,aqua);
+        
+    }
+    .a{
+        margin-left: 320px;
+        font-size: 40px;
+    }
+    .center{
+        width: 60%;
+        height: 86%;
+        margin-left: 20%;
+    }
+    .b{
+        margin-left: 100px;
+        height: 150px;
+        width: 150px;
+        margin-top: 20px;
+        background-color: chocolate;
+        color: black;
+        font-size: 70px;
+    }
+    .c{
+        margin-top: 100px;
+        height: 150px;
+        width: 150px;
+        margin-top: 40px;
+        margin-left: 100px;
+        background-color: chocolate;
+        color: black;
+        font-size: 70px;
+    }
+    .d{
+        margin-top: 100px;
+        height: 150px;
+        width: 150px;
+        margin-top: 40px;
+        margin-left: 100px;
+        background-color: chocolate;
+        color: black;
+        font-size: 70px;
+    }
+    .e{
+        margin-top: 300px;
+        margin-left: 50px;
+        font-size: 30px;
+    }
+    .f{
+        margin-left: 80px;
+        font-size: 40px;
+    }
+    .g{
+        height: 30px;
+        width: 90px;
+        margin-left: 700px;
+        margin-top: -50px;
+        background-color: aqua;
+        border-radius: 360px;
+    }
+    .h{
+        margin-left: 450px;
+        margin-top: 200px;
+        font-size: 30px;
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="left" id="y"><p class="e">Player 1</p><P id="s10" class="f"></P></div>
+    <div class="header"><p class="a">TIK TAK TOE</p>
+        <input type="button" value="Start" class="g" onclick="show()">
+    </div>
+    <div class="right" id="x"><p class="e">Player 2</p><p class="f" id="s11"></p></div>
+    <div class="h" id="s12"><p>WELCOME TO THE TIKTAKTOE GAME</p>
+                   <p>PRESS START TO PLAY THE GAME</p></div>
+    <div class="center" id="z">
+        <input type="button" onclick="show1()" id="s1" class="b">
+        <input type="button" onclick="show2()" id="s2" class="b">
+        <input type="button" onclick="show3()" id="s3" class="b">
+        <input type="button" onclick="show4()" id="s4" class="c">
+        <input type="button" onclick="show5()" id="s5" class="c">
+        <input type="button" onclick="show6()" id="s6" class="c">
+        <input type="button" onclick="show7()" id="s7" class="d">
+        <input type="button" onclick="show8()" id="s8" class="d">
+        <input type="button" onclick="show9()" id="s9" class="d">
+    </div>
+
+    <script>
+        var a=0,b=0
+        document.getElementById("s10").innerHTML=0
+        document.getElementById("s11").innerHTML=0
+        document.getElementById("x").style.visibility='hidden'
+        document.getElementById("y").style.visibility='hidden'
+        document.getElementById("z").style.visibility='hidden'
+        function update1(){
+            a++;
+            document.getElementById("s10").innerHTML=a;
+            if(a==3)
+            {
+                alert("Player 1 Win the game")
+                restart();
+            }
+        }
+
+        function update2(){
+            b++;
+            document.getElementById("s11").innerHTML=b;
+            if(b==3){
+                alert("Player 2 Win the game");
+                restart();
+            }
+        }
+
+        function restart()
+        {
+            document.getElementById("s1").value="";
+            document.getElementById("s2").value="";
+            document.getElementById("s3").value="";
+            document.getElementById("s4").value="";
+            document.getElementById("s5").value="";
+            document.getElementById("s6").value="";
+            document.getElementById("s7").value="";
+            document.getElementById("s8").value="";
+            document.getElementById("s9").value="";
+            t=1;
+        }
+        function Winner()
+        {
+            var a1=document.getElementById("s1").value;
+            var a2=document.getElementById("s2").value;
+            var a3=document.getElementById("s3").value;
+            var a4=document.getElementById("s4").value;
+            var a5=document.getElementById("s5").value;
+            var a6=document.getElementById("s6").value;
+            var a7=document.getElementById("s7").value;
+            var a8=document.getElementById("s8").value;
+            var a9=document.getElementById("s9").value;
+
+            if(a1.length!=0 && a2.length!=0 && a3.length!=0)
+            {
+                if(a1==a2 && a1==a3){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                   
+                }
+                
+            }
+            if(a4.length!=0 && a5.length!=0 && a6.length!=0)
+            {
+                if(a4==a5 && a4==a6){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(a7.length!=0 && a8.length!=0 && a9.length!=0)
+            {
+                if(a7==a8 && a7==a9){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                        
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(a1.length!=0 && a4.length!=0 && a7.length!=0)
+            {
+                if(a1==a4 && a4==a7){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                        }
+                }
+            }
+            if(a2.length!=0 && a5.length!=0 && a8.length!=0)
+            {
+                if(a2==a5 && a5==a8){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(a3.length!=0 && a6.length!=0 && a9.length!=0)
+            {
+                if(a3==a6 && a6==a9){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(a1.length!=0 && a5.length!=0 && a9.length!=0)
+            {
+                if(a1==a5 && a5==a9){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(a3.length!=0 && a5.length!=0 && a7.length!=0)
+            {
+                if(a3==a5 && a5==a7){
+                    if(a1=="*")
+                    {
+                        alert("Player 1 is winner")
+                        update1();
+                        restart();
+                    }
+                    else{
+                        alert("Player 2 is winner")
+                        restart();
+                        update2();
+                    }
+                }
+            }
+            if(t==10)
+                {
+                    alert("DRAW")
+                    restart();
+                }
+        }
+        var t=1;
+        function show1()
+        {
+            if(document.getElementById("s1").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s1").value="*";
+            }
+            else{
+                document.getElementById("s1").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show2()
+        {
+            if(document.getElementById("s2").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s2").value="*";
+            }
+            else{
+                document.getElementById("s2").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show3()
+        {
+            if(document.getElementById("s3").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s3").value="*";
+            }
+            else{
+                document.getElementById("s3").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show4()
+        {
+            if(document.getElementById("s4").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s4").value="*";
+            }
+            else{
+                document.getElementById("s4").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show5()
+        {
+            if(document.getElementById("s5").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s5").value="*";
+            }
+            else{
+                document.getElementById("s5").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show6()
+        {
+            if(document.getElementById("s6").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s6").value="*";
+            }
+            else{
+                document.getElementById("s6").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show7()
+        {
+            if(document.getElementById("s7").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s7").value="*";
+            }
+            else{
+                document.getElementById("s7").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show8()
+        {
+            if(document.getElementById("s8").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s8").value="*";
+            }
+            else{
+                document.getElementById("s8").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show9()
+        {
+            if(document.getElementById("s9").value.length==0)
+            {
+            if(t%2==1)
+            {
+                document.getElementById("s9").value="*";
+            }
+            else{
+                document.getElementById("s9").value="O";
+            }
+            t++;
+            Winner();
+        }
+    }
+    function show()
+    {
+        document.getElementById("x").style.visibility='visible'
+        document.getElementById("y").style.visibility='visible'
+        document.getElementById("z").style.visibility='visible'
+        document.getElementById("s12").style.visibility='hidden'
+    }
+    </script>
+</body>
+</html>
