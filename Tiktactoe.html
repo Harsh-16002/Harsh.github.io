@@ -84,7 +84,7 @@
         height: 30px;
         width: 90px;
         margin-left: 700px;
-        margin-top: -50px;
+        margin-top: -60px;
         background-color: aqua;
         border-radius: 360px;
     }
@@ -93,6 +93,14 @@
         margin-top: 200px;
         font-size: 30px;
         position: absolute;
+    }
+    .i{
+        height: 30px;
+        width: 90px;
+        margin-left: 700px;
+        margin-top: -20px;
+        background-color: aqua;
+        border-radius: 360px;
     }
 }
 @media  screen and (Max-width:700px) {
@@ -185,12 +193,13 @@
    }
 </style>
 <body>
-    <div class="header"><p class="a">TIK TAC TOE</p>
+    <div class="header"><p class="a">TIC TAC TOE</p>
         <input type="button" value="Start" class="g" onclick="show()">
+        <input type="button" value="Reset" class="i" onclick="reset()">
     </div>
     <div class="left" id="y"><p class="e">Player 1</p><P id="s10" class="f"></P></div>
     <div class="right" id="x"><p class="e">Player 2</p><p class="f" id="s11"></p></div>
-    <div class="h" id="s12"><p>WELCOME TO THE TIKTACTOE GAME</p>
+    <div class="h" id="s12"><p>WELCOME TO THE TICTACTOE GAME</p>
                    <p>PRESS START TO PLAY THE GAME</p></div>
     <div class="center" id="z">
         <p><input type="button" onclick="show1()" id="s1" class="b">
@@ -206,17 +215,20 @@
 
     <script>
         var a=0,b=0
-        document.getElementById("s10").innerHTML=0
-        document.getElementById("s11").innerHTML=0
+        document.getElementById("s10").innerHTML=a
+        document.getElementById("s11").innerHTML=b
         document.getElementById("x").style.visibility='hidden'
         document.getElementById("y").style.visibility='hidden'
         document.getElementById("z").style.visibility='hidden'
+
         function update1(){
             a++;
             document.getElementById("s10").innerHTML=a;
             if(a==3)
             {
-                alert("Player 1 Win the game")
+                alert("Player 1 Win the game");
+                a=0;
+                b=0;
                 restart();
             }
         }
@@ -226,6 +238,8 @@
             document.getElementById("s11").innerHTML=b;
             if(b==3){
                 alert("Player 2 Win the game");
+                a=0;
+                b=0;
                 restart();
             }
         }
@@ -258,7 +272,7 @@
             if(a1.length!=0 && a2.length!=0 && a3.length!=0)
             {
                 if(a1==a2 && a1==a3){
-                    if(a1=="*")
+                    if(a1=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -276,7 +290,7 @@
             if(a4.length!=0 && a5.length!=0 && a6.length!=0)
             {
                 if(a4==a5 && a4==a6){
-                    if(a1=="*")
+                    if(a4=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -292,7 +306,7 @@
             if(a7.length!=0 && a8.length!=0 && a9.length!=0)
             {
                 if(a7==a8 && a7==a9){
-                    if(a1=="*")
+                    if(a7=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -309,7 +323,7 @@
             if(a1.length!=0 && a4.length!=0 && a7.length!=0)
             {
                 if(a1==a4 && a4==a7){
-                    if(a1=="*")
+                    if(a1=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -325,7 +339,7 @@
             if(a2.length!=0 && a5.length!=0 && a8.length!=0)
             {
                 if(a2==a5 && a5==a8){
-                    if(a1=="*")
+                    if(a2=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -341,7 +355,7 @@
             if(a3.length!=0 && a6.length!=0 && a9.length!=0)
             {
                 if(a3==a6 && a6==a9){
-                    if(a1=="*")
+                    if(a3=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -357,7 +371,7 @@
             if(a1.length!=0 && a5.length!=0 && a9.length!=0)
             {
                 if(a1==a5 && a5==a9){
-                    if(a1=="*")
+                    if(a1=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -373,7 +387,7 @@
             if(a3.length!=0 && a5.length!=0 && a7.length!=0)
             {
                 if(a3==a5 && a5==a7){
-                    if(a1=="*")
+                    if(a3=="X")
                     {
                         alert("Player 1 is winner")
                         update1();
@@ -399,7 +413,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s1").value="*";
+                document.getElementById("s1").value="X";
             }
             else{
                 document.getElementById("s1").value="O";
@@ -414,7 +428,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s2").value="*";
+                document.getElementById("s2").value="X";
             }
             else{
                 document.getElementById("s2").value="O";
@@ -429,7 +443,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s3").value="*";
+                document.getElementById("s3").value="X";
             }
             else{
                 document.getElementById("s3").value="O";
@@ -444,7 +458,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s4").value="*";
+                document.getElementById("s4").value="X";
             }
             else{
                 document.getElementById("s4").value="O";
@@ -459,7 +473,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s5").value="*";
+                document.getElementById("s5").value="X";
             }
             else{
                 document.getElementById("s5").value="O";
@@ -474,7 +488,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s6").value="*";
+                document.getElementById("s6").value="X";
             }
             else{
                 document.getElementById("s6").value="O";
@@ -489,7 +503,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s7").value="*";
+                document.getElementById("s7").value="X";
             }
             else{
                 document.getElementById("s7").value="O";
@@ -504,7 +518,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s8").value="*";
+                document.getElementById("s8").value="X";
             }
             else{
                 document.getElementById("s8").value="O";
@@ -519,7 +533,7 @@
             {
             if(t%2==1)
             {
-                document.getElementById("s9").value="*";
+                document.getElementById("s9").value="X";
             }
             else{
                 document.getElementById("s9").value="O";
@@ -535,6 +549,12 @@
         document.getElementById("z").style.visibility='visible'
         document.getElementById("s12").style.visibility='hidden'
     }
+     function reset()
+     {
+        restart();
+        a=0;
+        b=0;
+     }
     </script>
 </body>
 </html>
